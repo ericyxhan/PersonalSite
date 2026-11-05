@@ -132,15 +132,19 @@
 .sliderPlay {
   flex: 1;
   min-width: 140px;
+  height: 28px;
+  margin-block: -6px;
   accent-color: var(--accent);
 }
 .sliderShort {
   width: 96px;
+  height: 28px;
+  margin-block: -6px;
   accent-color: var(--accent);
 }
 .mdRun {
   width: 32px;
-  height: 26px;
+  height: 32px;
   display: grid;
   place-items: center;
   border: 1px solid var(--rule-strong);
@@ -180,13 +184,40 @@
   color: var(--ink-faint);
   font-variant-numeric: tabular-nums;
 }
+button.ctrlEnd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 28px;
+  margin-block: -6px;
+  padding: 0 7px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 3px;
+  background: var(--paper-2);
+  color: var(--ink-dim);
+  cursor: pointer;
+  transition:
+    border-color 0.14s ease,
+    color 0.14s ease;
+}
+button.ctrlEnd:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
 .slider {
   flex: 1;
   min-width: 140px;
+  height: 28px;
+  margin-block: -6px;
   accent-color: var(--canopy);
 }
 .toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   min-width: 148px;
+  min-height: 32px;
   padding: 6px 12px;
   text-align: center;
   border: 1px solid var(--rule-strong);

@@ -3,7 +3,7 @@
   --paper-2: #ffffff;
   --ink: #101216;
   --ink-dim: #4d545d;
-  --ink-faint: #878e97;
+  --ink-faint: #69717b;
   --rule: #e0e0dc;
   --rule-strong: #c8c9c4;
   --accent: #1b4dff;
@@ -538,6 +538,7 @@
   font-size: 14.5px;
   line-height: 1.7;
   color: var(--ink-dim);
+  max-width: 62ch;
 }
 .component {
   display: grid;
@@ -568,6 +569,7 @@
   font-size: 14px;
   line-height: 1.65;
   color: var(--ink-dim);
+  max-width: 62ch;
 }
 @media (max-width: 560px) {
   .actions {
@@ -683,6 +685,7 @@
   margin: 0;
   padding: 0;
   list-style: none;
+  max-width: 62ch;
 }
 .bullets li {
   position: relative;
@@ -747,16 +750,25 @@
   color: var(--ink-dim);
 }
 .link {
-  display: inline-block;
-  margin-top: 12px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  margin-top: 6px;
   font-family: var(--mono);
   font-size: 10px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--accent);
   text-decoration: none;
+}
+.link::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 7px;
+  left: 0;
   border-bottom: 1px solid currentColor;
-  padding-bottom: 2px;
 }
 .demo {
   margin-top: 18px;
@@ -899,6 +911,7 @@
   font-size: 12.5px;
   line-height: 1.6;
   color: var(--ink-faint);
+  max-width: 62ch;
 }
 .contactRow {
   display: flex;
@@ -917,6 +930,10 @@
   color: var(--ink-faint);
 }
 .contactRow a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  margin: -4px 0;
   color: var(--accent);
   text-decoration: none;
 }
@@ -935,6 +952,7 @@
   font-size: 13.5px;
   line-height: 1.7;
   color: var(--ink-dim);
+  max-width: 62ch;
 }
 .asideLabel {
   display: block;
@@ -994,6 +1012,9 @@
   .figures {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+  .figures > :last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
   .figure:nth-child(odd) {
     padding-left: 0;
   }
@@ -1005,6 +1026,9 @@
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 18px 28px;
+  }
+  .outcomes > :last-child:nth-child(odd) {
+    grid-column: 1 / -1;
   }
   .detailSection {
     padding: 20px 0;
@@ -1046,6 +1070,9 @@
   }
 }
 @media (prefers-reduced-motion: reduce) {
+  .root {
+    scroll-behavior: auto;
+  }
   .root * {
     transition-duration: 0.001ms !important;
   }
@@ -1056,7 +1083,7 @@
     --paper-2: #16191e;
     --ink: #e8ebee;
     --ink-dim: #a2aab3;
-    --ink-faint: #6b737d;
+    --ink-faint: #7e8690;
     --rule: #222831;
     --rule-strong: #353d47;
     --teal: #4fd1c5;

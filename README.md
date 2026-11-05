@@ -1,0 +1,43 @@
+# Eric Han — personal site
+
+This is a runnable Vite/React reconstruction of the deployed GitHub Pages
+site. It was recovered from the production HTML, JavaScript chunks, and CSS;
+the original pre-build source maps and repository history were not available.
+
+## Development
+
+```sh
+npm install
+npm run dev
+```
+
+Open `http://localhost:5173/PersonalSite/` (or the port Vite reports). Build a
+deployable GitHub Pages artifact with:
+
+```sh
+npm run build
+```
+
+`dist/` contains both `index.html` and `404.html`, so direct routes such as
+`/PersonalSite/work/asclepius` continue to work on GitHub Pages.
+
+## Source layout
+
+- `src/App.jsx` — recovered content model, router, Resume theme, shared SVG and
+  canvas figures, and the active application shell.
+- `src/themes/*` — recovered lazy-loaded Groundtruth, Stark, and Terminal
+  themes.
+- `src/styles/*` — the recovered styles rebuilt as CSS Modules with semantic
+  class names.
+- `public/` — deployment-time Open Graph images.
+- `assets/` — the original production artifact retained as a reference; it is
+  not used by the Vite application.
+
+The live site intentionally keeps the original fixed **Resume** theme. The
+three alternate themes are preserved in source and can be selected by changing
+`M6` in `src/App.jsx` while developing.
+
+Because this was reverse engineered from a minified build, internal helper
+names and original author comments/file boundaries cannot be recovered with
+certainty. All recovered behavior, content, figures, routes, and alternate
+theme modules are present in the new source tree.

@@ -1,0 +1,295 @@
+.plate {
+  --paper: #f7f7f5;
+  --paper-2: #ffffff;
+  --ink: #101216;
+  --ink-dim: #4d545d;
+  --ink-faint: #878e97;
+  --plate-note: #6d7276;
+  --rule: #e0e0dc;
+  --rule-strong: #c8c9c4;
+  --accent: #1b4dff;
+  --flag: #e2365c;
+  --canopy: #2f6b3f;
+  margin: 24px 0 0;
+  border: 1px solid var(--rule-strong);
+  border-radius: 4px;
+  overflow: hidden;
+  background: #0c1210;
+}
+.plateBar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  padding: 8px 12px;
+  background: var(--paper-2);
+  border-bottom: 1px solid var(--rule-strong);
+  font-family: var(--mono, ui-monospace, "SF Mono", Menlo, monospace);
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+.plateSpacer {
+  flex: 1;
+}
+.raster {
+  position: relative;
+  aspect-ratio: 132 / 62;
+  overflow: hidden;
+}
+.rasterCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.ticks {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+  background-size: 12.5% 25%;
+}
+.corner {
+  position: absolute;
+  font-family: var(--mono, ui-monospace, "SF Mono", Menlo, monospace);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: #ffffffb8;
+  pointer-events: none;
+}
+.cornerTL {
+  top: 7px;
+  left: 9px;
+}
+.cornerBR {
+  bottom: 7px;
+  right: 9px;
+}
+.scaleBar {
+  position: absolute;
+  left: 9px;
+  bottom: 9px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--mono, ui-monospace, "SF Mono", Menlo, monospace);
+  font-size: 9px;
+  color: #ffffffc7;
+  pointer-events: none;
+}
+.scaleTicks {
+  display: flex;
+  height: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+.scaleTicks span {
+  width: 14px;
+  border-right: 1px solid rgba(255, 255, 255, 0.8);
+}
+.scaleTicks span:last-child {
+  border-right: none;
+}
+.scaleTicks span:nth-child(odd) {
+  background: #fffc;
+}
+.mdStage {
+  position: relative;
+  height: min(46vh, 380px);
+  min-height: 260px;
+  background: #0a0e13;
+  --plate-ink: #cdd6df;
+  --plate-accent: #6ea8ff;
+  --plate-warn: #ff6b85;
+}
+.hud {
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  padding: 8px 12px;
+  font-family: var(--mono, ui-monospace, "SF Mono", Menlo, monospace);
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #ffffff80;
+  pointer-events: none;
+}
+.hudTop {
+  top: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: #0a0e1399;
+}
+.hudValue {
+  color: #ffffffd9;
+  font-variant-numeric: tabular-nums;
+}
+.sliderPlay {
+  flex: 1;
+  min-width: 140px;
+  accent-color: var(--accent);
+}
+.sliderShort {
+  width: 96px;
+  accent-color: var(--accent);
+}
+.mdRun {
+  width: 32px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--rule-strong);
+  border-radius: 3px;
+  background: transparent;
+  color: var(--ink);
+  font-size: 9px;
+  cursor: pointer;
+  transition:
+    border-color 0.14s ease,
+    color 0.14s ease;
+}
+.mdRun:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.plateControls {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  padding: 10px 12px;
+  background: var(--paper-2);
+  border-top: 1px solid var(--rule-strong);
+}
+.ctrlLabel {
+  font-family: var(--mono, ui-monospace, "SF Mono", Menlo, monospace);
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.ctrlEnd {
+  font-family: var(--mono, ui-monospace, "SF Mono", Menlo, monospace);
+  font-size: 9.5px;
+  letter-spacing: 0.06em;
+  color: var(--ink-faint);
+  font-variant-numeric: tabular-nums;
+}
+.slider {
+  flex: 1;
+  min-width: 140px;
+  accent-color: var(--canopy);
+}
+.toggle {
+  min-width: 148px;
+  padding: 6px 12px;
+  text-align: center;
+  border: 1px solid var(--rule-strong);
+  border-radius: 3px;
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--mono, ui-monospace, "SF Mono", Menlo, monospace);
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background 0.14s ease,
+    border-color 0.14s ease,
+    color 0.14s ease;
+}
+.toggleOn {
+  background: var(--flag);
+  border-color: var(--flag);
+  color: #fff;
+}
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 9px 12px;
+  border-top: 1px solid var(--rule);
+  background: var(--paper);
+  font-family: var(--mono, ui-monospace, "SF Mono", Menlo, monospace);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.ramp {
+  width: 140px;
+  height: 9px;
+  border: 1px solid var(--rule);
+  background: linear-gradient(
+    90deg,
+    #78604a,
+    #b29e60,
+    #96b054,
+    #488c3e,
+    #16542c
+  );
+}
+.swatchFlag {
+  display: inline-block;
+  width: 14px;
+  height: 9px;
+  margin-right: 5px;
+  vertical-align: -1px;
+  background: var(--flag);
+}
+.plateNote {
+  padding: 10px 12px 12px;
+  background: var(--paper);
+  border-top: 1px solid var(--rule);
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--plate-note);
+}
+@media (prefers-color-scheme: dark) {
+  .plate {
+    --paper: #0e1013;
+    --paper-2: #16191e;
+    --ink: #e8ebee;
+    --ink-dim: #a2aab3;
+    --ink-faint: #6b737d;
+    --plate-note: #8b9298;
+    --rule: #222831;
+    --rule-strong: #353d47;
+    --accent: #6b8cff;
+  }
+}
+@media (max-width: 560px) {
+  .mdStage {
+    height: min(38vh, 300px);
+    min-height: 220px;
+  }
+  .hud {
+    gap: 10px;
+    padding: 7px 9px;
+    font-size: 9px;
+  }
+  .plateBar {
+    gap: 10px;
+    padding: 7px 9px;
+  }
+  .plateControls {
+    gap: 10px;
+    padding: 9px;
+  }
+  .slider {
+    min-width: 104px;
+  }
+  .legend {
+    gap: 8px;
+    padding: 8px 9px;
+  }
+  .plateNote {
+    padding: 10px 10px 12px;
+  }
+}

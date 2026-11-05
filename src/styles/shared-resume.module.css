@@ -7,13 +7,10 @@
   --rule: #e0e0dc;
   --rule-strong: #c8c9c4;
   --accent: #1b4dff;
-  --loss: #c8102e;
   --teal: #0f766e;
   --amber: #9a6a00;
   --project-s: 58%;
   --project-l: 38%;
-  --bar-s: 62%;
-  --bar-l: 58%;
   --ui: "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   --mono: "SF Mono", "JetBrains Mono", ui-monospace, Menlo, monospace;
   position: relative;
@@ -252,18 +249,14 @@
   font-size: 13.5px;
   font-weight: 600;
   letter-spacing: -0.01em;
-  color: var(--ink-faint);
+  color: var(--ink-dim);
   padding: 4px 16px 4px 0;
   margin-right: 16px;
   border-right: 1px solid var(--rule);
-  transition: color 0.2s ease;
 }
 .mark:last-child {
   border-right: none;
   margin-right: 0;
-}
-.marks:hover .mark {
-  color: var(--ink-dim);
 }
 .markImg {
   height: 20px;
@@ -907,25 +900,6 @@
   line-height: 1.6;
   color: var(--ink-faint);
 }
-.videoThumb {
-  aspect-ratio: 16 / 9;
-  border: 1px solid var(--rule-strong);
-  border-radius: 6px;
-  background: linear-gradient(
-    150deg,
-    hsl(var(--hue), 32%, 68%),
-    hsl(calc(var(--hue) + 40), 26%, 40%)
-  );
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-}
-.videoThumb img,
-.videoThumb video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
 .contactRow {
   display: flex;
   justify-content: space-between;
@@ -973,10 +947,7 @@
 }
 @media (max-width: 880px) {
   .entry,
-  .row,
-  .linkRow,
-  .trackRow,
-  .videoRow {
+  .linkRow {
     grid-template-columns: 1fr;
     gap: 9px;
   }
@@ -986,9 +957,6 @@
   .figure {
     border-right: none;
     border-bottom: 1px solid var(--rule);
-  }
-  .videoThumb {
-    max-width: 240px;
   }
   .pagerBtn {
     max-width: 100%;
@@ -1034,13 +1002,12 @@
     border-right: none;
   }
   .outcomes {
+    display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 28px;
   }
   .detailSection {
     padding: 20px 0;
-  }
-  .marks {
-    gap: 10px 14px;
   }
   .listHead {
     margin-top: 26px;
@@ -1085,7 +1052,6 @@
 }
 @media (prefers-color-scheme: dark) {
   .root {
-    --loss: #ff5c7d;
     --paper: #0e1013;
     --paper-2: #16191e;
     --ink: #e8ebee;
@@ -1097,8 +1063,6 @@
     --amber: #f0a92c;
     --project-s: 72%;
     --project-l: 68%;
-    --bar-s: 62%;
-    --bar-l: 62%;
     --accent: #6b8cff;
   }
   .bar {

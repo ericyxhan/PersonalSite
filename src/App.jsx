@@ -4996,6 +4996,11 @@ const ResumeTheme = () => {
                     ]
                       .filter(Boolean)
                       .join(" ")}
+                    aria-current={
+                      a.kind === "index" || a.kind === "role"
+                        ? "page"
+                        : undefined
+                    }
                     onClick={() =>
                       f({
                         kind: "index",
@@ -5014,6 +5019,9 @@ const ResumeTheme = () => {
                     ]
                       .filter(Boolean)
                       .join(" ")}
+                    aria-current={
+                      a.kind === "page" && a.id === h.id ? "page" : undefined
+                    }
                     onClick={() =>
                       f({
                         kind: "page",
@@ -5948,40 +5956,26 @@ const ResumeTheme = () => {
   _6 = U.lazy(() => import("./themes/stark/Stark.jsx")),
   N6 = U.lazy(() => import("./themes/terminal/Terminal.jsx")),
   M6 = "resume",
-  E6 = !1,
   j6 = [
     {
       id: "resume",
-      name: "Resume",
-      swatch: "#1b4dff",
-      key: "1",
       Component: ResumeTheme,
     },
     {
       id: "groundtruth",
-      name: "Groundtruth",
-      swatch: "#5cbd79",
-      key: "2",
       Component: S6,
     },
     {
       id: "stark",
-      name: "Stark",
-      swatch: "#9aa0a6",
-      key: "3",
       Component: _6,
     },
     {
       id: "terminal",
-      name: "Terminal",
-      swatch: "#4ef08a",
-      key: "4",
       Component: N6,
     },
   ],
   SiteShell = () => {
-    const [a, f] = U.useState(M6);
-    U.useEffect(() => {}, []);
+    const a = M6;
     const u = j6.find((x) => x.id === a)?.Component ?? ResumeTheme;
     return (
       <div className={Qs.shell}>
@@ -5995,7 +5989,6 @@ const ResumeTheme = () => {
             {<U.Suspense fallback={null}>{s.jsx(u, {})}</U.Suspense>}
           </main>
         }
-        {E6}
       </div>
     );
   },
